@@ -35,24 +35,6 @@
     }
 }
 
-#pragma mark - Map view delegate
-
-- (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView {
-    [self initAnnotations];
-}
-
-#pragma mark - Fetched results controller
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
-    Position *position = anObject;
-    
-    if (type == NSFetchedResultsChangeDelete) {
-        [self removeAnnotationWithLongitude:position.lon latitude:position.lat];
-    } else if (type == NSFetchedResultsChangeInsert) {
-        [self addAnnotationForLongitude:position.lon latitude:position.lat];
-    }
-}
-
 - (IBAction)tapped:(id)sender {
     CGPoint point = [sender locationInView:self.mapView];
     [PositionManager saveNewPositionWithLatitude:@(point.x) Longitude:@(point.y)];
@@ -74,6 +56,24 @@
     
     MyAnnotation *annotation = [[MyAnnotation alloc] initWithCoordinates:coordinate];
     [self.mapView addAnnotation:annotation];
+}
+
+#pragma mark - Map view delegate
+
+- (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView {
+    [self initAnnotations];
+}
+
+#pragma mark - Fetched results controller
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
+    Position *position = anObject;
+    
+    if (type == NSFetchedResultsChangeDelete) {
+        [self removeAnnotationWithLongitude:position.lon latitude:position.lat];
+    } else if (type == NSFetchedResultsChangeInsert) {
+        [self addAnnotationForLongitude:position.lon latitude:position.lat];
+    }
 }
 
 @end

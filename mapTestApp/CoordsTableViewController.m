@@ -25,18 +25,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.fetchedResultsController = [CoreDataHelper fetchedResultsControllerWithEntityName:@"Position"];
+    self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.fetchedResultsController = [CoreDataHelper fetchedResultsControllerWithEntityName:@"Position"];
+    self.fetchedResultsController.delegate = self;
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-//    [PositionManager saveNewPositionWithLatitude:@135 Longitude:@300];
 }
 
 #pragma mark - Fetched results controller
@@ -63,7 +61,7 @@
             [self.tableView insertRowsAtIndexPaths:@[ newIndexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
             break;
         case NSFetchedResultsChangeUpdate:
-            
+            [self.tableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
             break;
     }
 }
@@ -91,25 +89,25 @@
     
     cell.longitude.text = [position.lon stringValue];
     cell.latitude.text = [position.lat stringValue];
+    cell.accessoryType = UITableViewCellAccessoryDetailButton;
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+    FlickerCollectionViewController *flickerViewController = [[FlickerCollectionViewController alloc] initWithNibName:@"FlickerCollectionViewController" bundle:nil];
     
+    [self.navigationController pushViewController:flickerViewController animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 68;
 }
 
-
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     FlickerCollectionViewController *flickerViewController = [[FlickerCollectionViewController alloc] initWithNibName:@"FlickerCollectionViewController" bundle:nil];
-    
-    flickerViewController.position = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
     [self.navigationController pushViewController:flickerViewController animated:YES];
 }

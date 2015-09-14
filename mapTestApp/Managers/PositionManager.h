@@ -11,8 +11,8 @@
 
 @interface PositionManager : NSObject
 
-+ (void)saveNewPositionWithLatitude:(NSNumber *)Lat Longitude:(NSNumber *)Lon;
++ (void)saveNewPositionWithLongitude:(NSNumber *)Lon Latitude:(NSNumber *)Lat;
 + (NSArray *)fetchAllPositions;
-+ (void)deletePositionForLatitude:(NSNumber *)Lat Longitude:(NSNumber *)Lon;
++ (void)deletePositionForLongitude:(NSNumber *)Lon Latitude:(NSNumber *)Lat;
 
 @end

@@ -17,8 +17,6 @@
 		49CC885C1BA2C597004BE1A8 /* TabBarController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CC885A1BA2C597004BE1A8 /* TabBarController.xib */; };
 		49CC88601BA2C5DA004BE1A8 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CC885E1BA2C5DA004BE1A8 /* MapViewController.m */; };
 		49CC88611BA2C5DA004BE1A8 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CC885F1BA2C5DA004BE1A8 /* MapViewController.xib */; };
-		49CC88651BA2C64F004BE1A8 /* CoordsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CC88631BA2C64F004BE1A8 /* CoordsTableViewController.m */; };
-		49CC88661BA2C64F004BE1A8 /* CoordsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CC88641BA2C64F004BE1A8 /* CoordsTableViewController.xib */; };
 		49CC886A1BA2CB2E004BE1A8 /* OperationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CC88681BA2CB2E004BE1A8 /* OperationsTableViewController.m */; };
 		49CC886B1BA2CB2E004BE1A8 /* OperationsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CC88691BA2CB2E004BE1A8 /* OperationsTableViewController.xib */; };
 		49CC886E1BA2CBB2004BE1A8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49CC886C1BA2CBA8004BE1A8 /* MapKit.framework */; };
@@ -30,6 +28,10 @@
 		49CC88951BA6EB38004BE1A8 /* CustomViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CC88941BA6EB38004BE1A8 /* CustomViewCell.m */; };
 		49CC88991BA6EE4B004BE1A8 /* FlickerCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CC88971BA6EE4B004BE1A8 /* FlickerCollectionViewController.m */; };
 		49CC889A1BA6EE4B004BE1A8 /* FlickerCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CC88981BA6EE4B004BE1A8 /* FlickerCollectionViewController.xib */; };
+		49CC889E1BA70487004BE1A8 /* CoordsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CC889C1BA70487004BE1A8 /* CoordsViewController.m */; };
+		49CC889F1BA70487004BE1A8 /* CoordsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CC889D1BA70487004BE1A8 /* CoordsViewController.xib */; };
+		49CC88A31BA71769004BE1A8 /* PositionEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CC88A11BA71769004BE1A8 /* PositionEditViewController.m */; };
+		49CC88A41BA71769004BE1A8 /* PositionEditViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CC88A21BA71769004BE1A8 /* PositionEditViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,9 +62,6 @@
 		49CC885D1BA2C5DA004BE1A8 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
 		49CC885E1BA2C5DA004BE1A8 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		49CC885F1BA2C5DA004BE1A8 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
-		49CC88621BA2C64F004BE1A8 /* CoordsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordsTableViewController.h; sourceTree = "<group>"; };
-		49CC88631BA2C64F004BE1A8 /* CoordsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoordsTableViewController.m; sourceTree = "<group>"; };
-		49CC88641BA2C64F004BE1A8 /* CoordsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoordsTableViewController.xib; sourceTree = "<group>"; };
 		49CC88671BA2CB2E004BE1A8 /* OperationsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OperationsTableViewController.h; sourceTree = "<group>"; };
 		49CC88681BA2CB2E004BE1A8 /* OperationsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OperationsTableViewController.m; sourceTree = "<group>"; };
 		49CC88691BA2CB2E004BE1A8 /* OperationsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OperationsTableViewController.xib; sourceTree = "<group>"; };
@@ -81,6 +80,12 @@
 		49CC88961BA6EE4B004BE1A8 /* FlickerCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickerCollectionViewController.h; sourceTree = "<group>"; };
 		49CC88971BA6EE4B004BE1A8 /* FlickerCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickerCollectionViewController.m; sourceTree = "<group>"; };
 		49CC88981BA6EE4B004BE1A8 /* FlickerCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlickerCollectionViewController.xib; sourceTree = "<group>"; };
+		49CC889B1BA70487004BE1A8 /* CoordsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoordsViewController.h; sourceTree = "<group>"; };
+		49CC889C1BA70487004BE1A8 /* CoordsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoordsViewController.m; sourceTree = "<group>"; };
+		49CC889D1BA70487004BE1A8 /* CoordsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CoordsViewController.xib; sourceTree = "<group>"; };
+		49CC88A01BA71769004BE1A8 /* PositionEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionEditViewController.h; sourceTree = "<group>"; };
+		49CC88A11BA71769004BE1A8 /* PositionEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionEditViewController.m; sourceTree = "<group>"; };
+		49CC88A21BA71769004BE1A8 /* PositionEditViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PositionEditViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,12 +140,15 @@
 				49CC885D1BA2C5DA004BE1A8 /* MapViewController.h */,
 				49CC885E1BA2C5DA004BE1A8 /* MapViewController.m */,
 				49CC885F1BA2C5DA004BE1A8 /* MapViewController.xib */,
-				49CC88621BA2C64F004BE1A8 /* CoordsTableViewController.h */,
-				49CC88631BA2C64F004BE1A8 /* CoordsTableViewController.m */,
-				49CC88641BA2C64F004BE1A8 /* CoordsTableViewController.xib */,
+				49CC889B1BA70487004BE1A8 /* CoordsViewController.h */,
+				49CC889C1BA70487004BE1A8 /* CoordsViewController.m */,
+				49CC889D1BA70487004BE1A8 /* CoordsViewController.xib */,
 				49CC88671BA2CB2E004BE1A8 /* OperationsTableViewController.h */,
 				49CC88681BA2CB2E004BE1A8 /* OperationsTableViewController.m */,
 				49CC88691BA2CB2E004BE1A8 /* OperationsTableViewController.xib */,
+				49CC88A01BA71769004BE1A8 /* PositionEditViewController.h */,
+				49CC88A11BA71769004BE1A8 /* PositionEditViewController.m */,
+				49CC88A21BA71769004BE1A8 /* PositionEditViewController.xib */,
 				49CC88961BA6EE4B004BE1A8 /* FlickerCollectionViewController.h */,
 				49CC88971BA6EE4B004BE1A8 /* FlickerCollectionViewController.m */,
 				49CC88981BA6EE4B004BE1A8 /* FlickerCollectionViewController.xib */,
@@ -282,8 +290,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49CC88661BA2C64F004BE1A8 /* CoordsTableViewController.xib in Resources */,
+				49CC88A41BA71769004BE1A8 /* PositionEditViewController.xib in Resources */,
 				49CC883E1BA1C8C3004BE1A8 /* LaunchScreen.xib in Resources */,
+				49CC889F1BA70487004BE1A8 /* CoordsViewController.xib in Resources */,
 				49CC885C1BA2C597004BE1A8 /* TabBarController.xib in Resources */,
 				49CC883B1BA1C8C3004BE1A8 /* Images.xcassets in Resources */,
 				49CC88611BA2C5DA004BE1A8 /* MapViewController.xib in Resources */,
@@ -310,14 +319,15 @@
 				49CC888A1BA6BA9C004BE1A8 /* PositionManager.m in Sources */,
 				49CC88301BA1C8C3004BE1A8 /* AppDelegate.m in Sources */,
 				49CC886A1BA2CB2E004BE1A8 /* OperationsTableViewController.m in Sources */,
+				49CC88A31BA71769004BE1A8 /* PositionEditViewController.m in Sources */,
 				49CC88831BA6BA1A004BE1A8 /* Position.m in Sources */,
+				49CC889E1BA70487004BE1A8 /* CoordsViewController.m in Sources */,
 				49CC88861BA6BA4D004BE1A8 /* CoreDataHelper.m in Sources */,
 				49CC885B1BA2C597004BE1A8 /* TabBarController.m in Sources */,
 				49CC88601BA2C5DA004BE1A8 /* MapViewController.m in Sources */,
 				49CC88331BA1C8C3004BE1A8 /* mapTestApp.xcdatamodeld in Sources */,
 				49CC882D1BA1C8C3004BE1A8 /* main.m in Sources */,
 				49CC88951BA6EB38004BE1A8 /* CustomViewCell.m in Sources */,
-				49CC88651BA2C64F004BE1A8 /* CoordsTableViewController.m in Sources */,
 				49CC888D1BA6D331004BE1A8 /* MyAnnotation.m in Sources */,
 				49CC88991BA6EE4B004BE1A8 /* FlickerCollectionViewController.m in Sources */,
 			);

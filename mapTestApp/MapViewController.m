@@ -37,8 +37,7 @@
 
 - (IBAction)tapped:(id)sender {
     CGPoint point = [sender locationInView:self.mapView];
-    [PositionManager saveNewPositionWithLatitude:@(point.x) Longitude:@(point.y)];
-    [self addAnnotationForLongitude:@(point.x) latitude:@(point.y)];
+    [PositionManager saveNewPositionWithLongitude:@(point.y) Latitude:@(point.x)];
 }
 
 - (void)removeAnnotationWithLongitude:(NSNumber *)longitude latitude:(NSNumber *)latitude {
@@ -46,22 +45,33 @@
     CLLocationCoordinate2D coordinate = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
     
     MyAnnotation *annotation = [[MyAnnotation alloc] initWithCoordinates:coordinate];
-    [self.mapView removeAnnotation:annotation];
-
+    for (id<MKAnnotation> annotatio in self.mapView.annotations) {
+        MKAnnotationView* anView = [self.mapView viewForAnnotation: annotatio];
+        MyAnnotation *anno = (MyAnnotation *)anView;
+        if (anView){
+            if (anno.coordinate.latitude == annotation.coordinate.latitude && anno.coordinate.longitude == annotation.coordinate.longitude) {
+                [self.mapView removeAnnotation:annotatio];
+                return;
+            }
+        }
+    }
 }
 
 - (void)addAnnotationForLongitude:(NSNumber *)longitude latitude:(NSNumber *)latitude {
     CGPoint point = CGPointMake([latitude floatValue], [longitude floatValue]);
     CLLocationCoordinate2D coordinate = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
     
+    NSLog(@"add - latitude: %f longitude: %f", coordinate.latitude, coordinate.longitude);
     MyAnnotation *annotation = [[MyAnnotation alloc] initWithCoordinates:coordinate];
     [self.mapView addAnnotation:annotation];
 }
 
 #pragma mark - Map view delegate
-
-- (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView {
+- (void)mapViewDidFinishRenderingMap:(MKMapView *)mapView fullyRendered:(BOOL)fullyRendered {
     [self initAnnotations];
+}
+- (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView {
+    
 }
 
 #pragma mark - Fetched results controller

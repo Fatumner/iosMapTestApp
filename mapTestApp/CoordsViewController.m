@@ -1,67 +1,62 @@
 //
-//  CoordsTableViewController.m
+//  CoordsViewController.m
 //  mapTestApp
 //
-//  Created by Mateusz Florczak on 11/09/15.
+//  Created by Mateusz Florczak on 14/09/15.
 //  Copyright (c) 2015 Kainos Software Ltd. All rights reserved.
 //
 
-#import "CoordsTableViewController.h"
+#import "CoordsViewController.h"
 #import "CoreDataHelper.h"
 #import "CustomViewCell.h"
 #import "FlickerCollectionViewController.h"
 #import "PositionManager.h"
+#import "PositionEditViewController.h"
 #import "MyAnnotation.h"
 #import "MapViewController.h"
 
-@interface CoordsTableViewController ()
+@interface CoordsViewController ()
 
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
-@implementation CoordsTableViewController
+@implementation CoordsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.dataSource = self;
-    self.tableView.delegate = self;
+    self.coordsTableView.dataSource = self;
+    self.coordsTableView.delegate = self;
     self.fetchedResultsController = [CoreDataHelper fetchedResultsControllerWithEntityName:@"Position"];
     self.fetchedResultsController.delegate = self;
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 #pragma mark - Fetched results controller
 
 - (void)controllerWillChangeContent:(NSFetchedResultsController *)controller {
-    [self.tableView beginUpdates];
+    [self.coordsTableView beginUpdates];
 }
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-    [self.tableView endUpdates];
+    [self.coordsTableView endUpdates];
 }
 
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
     
     switch (type) {
         case NSFetchedResultsChangeDelete:
-            [self.tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.coordsTableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
             break;
         case NSFetchedResultsChangeInsert:
-            [self.tableView insertRowsAtIndexPaths:@[ newIndexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.coordsTableView insertRowsAtIndexPaths:@[ newIndexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
             break;
         case NSFetchedResultsChangeMove:
-            [self.tableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
-            [self.tableView insertRowsAtIndexPaths:@[ newIndexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.coordsTableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.coordsTableView insertRowsAtIndexPaths:@[ newIndexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
             break;
         case NSFetchedResultsChangeUpdate:
-            [self.tableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.coordsTableView reloadRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
             break;
     }
 }
@@ -95,13 +90,19 @@
 }
 
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
-    FlickerCollectionViewController *flickerViewController = [[FlickerCollectionViewController alloc] initWithNibName:@"FlickerCollectionViewController" bundle:nil];
+    PositionEditViewController *positionEditViewController = [[PositionEditViewController alloc] initWithNibName:@"PositionEditViewController" bundle:nil];
     
-    [self.navigationController pushViewController:flickerViewController animated:YES];
+    [self.navigationController pushViewController:positionEditViewController animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 68;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [CoreDataHelper removeObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+    }
 }
 
 #pragma mark - Table view delegate
@@ -111,5 +112,10 @@
     
     [self.navigationController pushViewController:flickerViewController animated:YES];
 }
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewCellEditingStyleDelete;
+}
+
 
 @end

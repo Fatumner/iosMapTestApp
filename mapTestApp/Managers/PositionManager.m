@@ -11,7 +11,7 @@
 
 @implementation PositionManager
 
-+ (void)saveNewPositionWithLatitude:(NSNumber *)Lat Longitude:(NSNumber *)Lon {
++ (void)saveNewPositionWithLongitude:(NSNumber *)Lon Latitude:(NSNumber *)Lat {
     
     Position *position = [NSEntityDescription
                       insertNewObjectForEntityForName:@"Position"
@@ -36,7 +36,7 @@
     return [CoreDataHelper fetchDataWithEntityName:@"Position"];
 }
 
-+ (void)deletePositionForLatitude:(NSNumber *)Lat Longitude:(NSNumber *)Lon {
++ (void)deletePositionForLongitude:(NSNumber *)Lon Latitude:(NSNumber *)Lat {
     NSArray *positions = [self fetchAllPositions];
     
     for (Position *position in positions) {

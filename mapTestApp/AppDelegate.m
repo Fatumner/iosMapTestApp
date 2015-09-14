@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "CoordsTableViewController.h"
+#import "CoordsViewController.h"
 #import "MapViewController.h"
 #import "OperationsTableViewController.h"
 #import "TabBarController.h"
@@ -19,11 +19,11 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
     TabBarController *mainViewController = [[TabBarController alloc] initWithNibName:@"TabBarController" bundle:nil];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:mainViewController];
     
     MapViewController *mapViewController = [[MapViewController alloc] initWithNibName:@"MapViewController" bundle:nil];
-    CoordsTableViewController *coordsViewController = [[CoordsTableViewController alloc] initWithNibName:@"CoordsTableViewController" bundle:nil];
+    CoordsViewController *coordsViewController = [[CoordsViewController alloc] initWithNibName:@"CoordsViewController" bundle:nil];
     OperationsTableViewController *operationsViewController = [[OperationsTableViewController alloc] initWithNibName:@"OperationsTableViewController" bundle:nil];
     
     mapViewController.title = @"1";
@@ -34,7 +34,7 @@
     [mainViewController setSelectedViewController:coordsViewController];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    self.window.rootViewController = mainViewController;
+    self.window.rootViewController = navController;
     [self.window makeKeyAndVisible];
     return YES;
 }

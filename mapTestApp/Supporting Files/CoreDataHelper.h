@@ -14,5 +14,6 @@
 + (NSManagedObjectContext *)managedObjectContext;
 + (NSArray *)fetchDataWithEntityName:(NSString *)EntityName;
 + (NSFetchedResultsController *)fetchedResultsControllerWithEntityName:(NSString *)entityName;
++ (void)removeObject:(NSManagedObject *)object;
 
 @end

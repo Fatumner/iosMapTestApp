@@ -44,4 +44,17 @@
     
     return fetchedResultsController;
 }
+
++ (void)removeObject:(NSManagedObject *)object {
+    [[CoreDataHelper managedObjectContext] deleteObject:object];
+    
+    NSError *savingError = nil;
+    if ([[CoreDataHelper managedObjectContext] save:&savingError]) {
+        NSLog(@"Successfully deleted position");
+    } else {
+        NSLog(@"Failed to delete the position");
+    }
+
+}
+
 @end

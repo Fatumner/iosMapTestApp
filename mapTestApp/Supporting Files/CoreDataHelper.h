@@ -13,5 +13,6 @@
 
 + (NSManagedObjectContext *)managedObjectContext;
 + (NSArray *)fetchDataWithEntityName:(NSString *)EntityName;
++ (NSFetchedResultsController *)fetchedResultsControllerWithEntityName:(NSString *)entityName;
 
 @end

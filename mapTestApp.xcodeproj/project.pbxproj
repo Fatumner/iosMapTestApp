@@ -25,6 +25,11 @@
 		49CC88831BA6BA1A004BE1A8 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CC88821BA6BA1A004BE1A8 /* Position.m */; };
 		49CC88861BA6BA4D004BE1A8 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CC88851BA6BA4D004BE1A8 /* CoreDataHelper.m */; };
 		49CC888A1BA6BA9C004BE1A8 /* PositionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CC88891BA6BA9C004BE1A8 /* PositionManager.m */; };
+		49CC888D1BA6D331004BE1A8 /* MyAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CC888C1BA6D331004BE1A8 /* MyAnnotation.m */; };
+		49CC88921BA6EAB7004BE1A8 /* CustomViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CC88911BA6EAB7004BE1A8 /* CustomViewCell.xib */; };
+		49CC88951BA6EB38004BE1A8 /* CustomViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CC88941BA6EB38004BE1A8 /* CustomViewCell.m */; };
+		49CC88991BA6EE4B004BE1A8 /* FlickerCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CC88971BA6EE4B004BE1A8 /* FlickerCollectionViewController.m */; };
+		49CC889A1BA6EE4B004BE1A8 /* FlickerCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CC88981BA6EE4B004BE1A8 /* FlickerCollectionViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +73,14 @@
 		49CC88851BA6BA4D004BE1A8 /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
 		49CC88881BA6BA9C004BE1A8 /* PositionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionManager.h; sourceTree = "<group>"; };
 		49CC88891BA6BA9C004BE1A8 /* PositionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionManager.m; sourceTree = "<group>"; };
+		49CC888B1BA6D331004BE1A8 /* MyAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyAnnotation.h; sourceTree = "<group>"; };
+		49CC888C1BA6D331004BE1A8 /* MyAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyAnnotation.m; sourceTree = "<group>"; };
+		49CC88911BA6EAB7004BE1A8 /* CustomViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomViewCell.xib; sourceTree = "<group>"; };
+		49CC88931BA6EB38004BE1A8 /* CustomViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomViewCell.h; sourceTree = "<group>"; };
+		49CC88941BA6EB38004BE1A8 /* CustomViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomViewCell.m; sourceTree = "<group>"; };
+		49CC88961BA6EE4B004BE1A8 /* FlickerCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickerCollectionViewController.h; sourceTree = "<group>"; };
+		49CC88971BA6EE4B004BE1A8 /* FlickerCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickerCollectionViewController.m; sourceTree = "<group>"; };
+		49CC88981BA6EE4B004BE1A8 /* FlickerCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlickerCollectionViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +141,12 @@
 				49CC88671BA2CB2E004BE1A8 /* OperationsTableViewController.h */,
 				49CC88681BA2CB2E004BE1A8 /* OperationsTableViewController.m */,
 				49CC88691BA2CB2E004BE1A8 /* OperationsTableViewController.xib */,
+				49CC88961BA6EE4B004BE1A8 /* FlickerCollectionViewController.h */,
+				49CC88971BA6EE4B004BE1A8 /* FlickerCollectionViewController.m */,
+				49CC88981BA6EE4B004BE1A8 /* FlickerCollectionViewController.xib */,
+				49CC88931BA6EB38004BE1A8 /* CustomViewCell.h */,
+				49CC88941BA6EB38004BE1A8 /* CustomViewCell.m */,
+				49CC88911BA6EAB7004BE1A8 /* CustomViewCell.xib */,
 				49CC88871BA6BA74004BE1A8 /* Managers */,
 				49CC887C1BA2F9AA004BE1A8 /* Models */,
 				49CC88801BA6B9D8004BE1A8 /* Supporting Files */,
@@ -157,6 +176,8 @@
 			children = (
 				49CC88811BA6BA1A004BE1A8 /* Position.h */,
 				49CC88821BA6BA1A004BE1A8 /* Position.m */,
+				49CC888B1BA6D331004BE1A8 /* MyAnnotation.h */,
+				49CC888C1BA6D331004BE1A8 /* MyAnnotation.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -266,7 +287,9 @@
 				49CC885C1BA2C597004BE1A8 /* TabBarController.xib in Resources */,
 				49CC883B1BA1C8C3004BE1A8 /* Images.xcassets in Resources */,
 				49CC88611BA2C5DA004BE1A8 /* MapViewController.xib in Resources */,
+				49CC88921BA6EAB7004BE1A8 /* CustomViewCell.xib in Resources */,
 				49CC886B1BA2CB2E004BE1A8 /* OperationsTableViewController.xib in Resources */,
+				49CC889A1BA6EE4B004BE1A8 /* FlickerCollectionViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,7 +316,10 @@
 				49CC88601BA2C5DA004BE1A8 /* MapViewController.m in Sources */,
 				49CC88331BA1C8C3004BE1A8 /* mapTestApp.xcdatamodeld in Sources */,
 				49CC882D1BA1C8C3004BE1A8 /* main.m in Sources */,
+				49CC88951BA6EB38004BE1A8 /* CustomViewCell.m in Sources */,
 				49CC88651BA2C64F004BE1A8 /* CoordsTableViewController.m in Sources */,
+				49CC888D1BA6D331004BE1A8 /* MyAnnotation.m in Sources */,
+				49CC88991BA6EE4B004BE1A8 /* FlickerCollectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

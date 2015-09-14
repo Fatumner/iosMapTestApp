@@ -17,6 +17,10 @@
             <subviews>
                 <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="cz5-uB-EOj">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="ubE-td-qhw" appends="YES" id="bdz-n3-b4Z"/>
+                    </connections>
                 </mapView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -28,6 +32,11 @@
             </constraints>
             <point key="canvasLocation" x="565" y="482"/>
         </view>
+        <tapGestureRecognizer id="ubE-td-qhw">
+            <connections>
+                <action selector="tapped:" destination="-1" id="lc4-Fl-rz4"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

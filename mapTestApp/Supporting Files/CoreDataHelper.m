@@ -23,4 +23,25 @@
     return [[self managedObjectContext] executeFetchRequest:fetchRequest error:nil];
 }
 
++ (NSFetchedResultsController *)fetchedResultsControllerWithEntityName:(NSString *)entityName {
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:entityName];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"lon" ascending:YES];
+    
+    fetchRequest.sortDescriptors = @[ sortDescriptor ];
+    
+    NSFetchedResultsController *fetchedResultsController = [[NSFetchedResultsController alloc]
+                                                            initWithFetchRequest:fetchRequest
+                                                            managedObjectContext:[self managedObjectContext]
+                                                            sectionNameKeyPath:nil
+                                                            cacheName:nil];
+    
+    if ([fetchedResultsController performFetch:nil]) {
+        NSLog(@"Data fetched successfully.");
+    } else {
+        NSLog(@"Cannot fetch data");
+    }
+    
+    return fetchedResultsController;
+}
 @end

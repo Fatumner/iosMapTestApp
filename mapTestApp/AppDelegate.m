@@ -27,6 +27,10 @@
     CoordsTableViewController *coordsViewController = [[CoordsTableViewController alloc] initWithNibName:@"CoordsTableViewController" bundle:nil];
     OperationsTableViewController *operationsViewController = [[OperationsTableViewController alloc] initWithNibName:@"OperationsTableViewController" bundle:nil];
     
+    mapViewController.title = @"1";
+    coordsViewController.title = @"2";
+    operationsViewController.title = @"3";
+    
     [mainViewController setViewControllers:@[ mapViewController, coordsViewController, operationsViewController ]];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];

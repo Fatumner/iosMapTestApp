@@ -22,6 +22,9 @@
 		49CC886A1BA2CB2E004BE1A8 /* OperationsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CC88681BA2CB2E004BE1A8 /* OperationsTableViewController.m */; };
 		49CC886B1BA2CB2E004BE1A8 /* OperationsTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49CC88691BA2CB2E004BE1A8 /* OperationsTableViewController.xib */; };
 		49CC886E1BA2CBB2004BE1A8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49CC886C1BA2CBA8004BE1A8 /* MapKit.framework */; };
+		49CC88831BA6BA1A004BE1A8 /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CC88821BA6BA1A004BE1A8 /* Position.m */; };
+		49CC88861BA6BA4D004BE1A8 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CC88851BA6BA4D004BE1A8 /* CoreDataHelper.m */; };
+		49CC888A1BA6BA9C004BE1A8 /* PositionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49CC88891BA6BA9C004BE1A8 /* PositionManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,8 +39,8 @@
 
 /* Begin PBXFileReference section */
 		49CC88271BA1C8C3004BE1A8 /* mapTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mapTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		49CC882B1BA1C8C3004BE1A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		49CC882C1BA1C8C3004BE1A8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		49CC882B1BA1C8C3004BE1A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
+		49CC882C1BA1C8C3004BE1A8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ../main.m; sourceTree = "<group>"; };
 		49CC882E1BA1C8C3004BE1A8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		49CC882F1BA1C8C3004BE1A8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		49CC88321BA1C8C3004BE1A8 /* mapTestApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = mapTestApp.xcdatamodel; sourceTree = "<group>"; };
@@ -59,6 +62,12 @@
 		49CC88681BA2CB2E004BE1A8 /* OperationsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OperationsTableViewController.m; sourceTree = "<group>"; };
 		49CC88691BA2CB2E004BE1A8 /* OperationsTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OperationsTableViewController.xib; sourceTree = "<group>"; };
 		49CC886C1BA2CBA8004BE1A8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		49CC88811BA6BA1A004BE1A8 /* Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Position.h; sourceTree = "<group>"; };
+		49CC88821BA6BA1A004BE1A8 /* Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Position.m; sourceTree = "<group>"; };
+		49CC88841BA6BA4D004BE1A8 /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataHelper.h; sourceTree = "<group>"; };
+		49CC88851BA6BA4D004BE1A8 /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataHelper.m; sourceTree = "<group>"; };
+		49CC88881BA6BA9C004BE1A8 /* PositionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PositionManager.h; sourceTree = "<group>"; };
+		49CC88891BA6BA9C004BE1A8 /* PositionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PositionManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,7 +116,6 @@
 				49CC883A1BA1C8C3004BE1A8 /* Images.xcassets */,
 				49CC883C1BA1C8C3004BE1A8 /* LaunchScreen.xib */,
 				49CC88311BA1C8C3004BE1A8 /* mapTestApp.xcdatamodeld */,
-				49CC882A1BA1C8C3004BE1A8 /* Supporting Files */,
 				49CC88581BA2C597004BE1A8 /* TabBarController.h */,
 				49CC88591BA2C597004BE1A8 /* TabBarController.m */,
 				49CC885A1BA2C597004BE1A8 /* TabBarController.xib */,
@@ -120,17 +128,11 @@
 				49CC88671BA2CB2E004BE1A8 /* OperationsTableViewController.h */,
 				49CC88681BA2CB2E004BE1A8 /* OperationsTableViewController.m */,
 				49CC88691BA2CB2E004BE1A8 /* OperationsTableViewController.xib */,
+				49CC88871BA6BA74004BE1A8 /* Managers */,
+				49CC887C1BA2F9AA004BE1A8 /* Models */,
+				49CC88801BA6B9D8004BE1A8 /* Supporting Files */,
 			);
 			path = mapTestApp;
-			sourceTree = "<group>";
-		};
-		49CC882A1BA1C8C3004BE1A8 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				49CC882B1BA1C8C3004BE1A8 /* Info.plist */,
-				49CC882C1BA1C8C3004BE1A8 /* main.m */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		49CC88461BA1C8C3004BE1A8 /* mapTestAppTests */ = {
@@ -148,6 +150,35 @@
 				49CC88481BA1C8C3004BE1A8 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		49CC887C1BA2F9AA004BE1A8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				49CC88811BA6BA1A004BE1A8 /* Position.h */,
+				49CC88821BA6BA1A004BE1A8 /* Position.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		49CC88801BA6B9D8004BE1A8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				49CC882B1BA1C8C3004BE1A8 /* Info.plist */,
+				49CC882C1BA1C8C3004BE1A8 /* main.m */,
+				49CC88841BA6BA4D004BE1A8 /* CoreDataHelper.h */,
+				49CC88851BA6BA4D004BE1A8 /* CoreDataHelper.m */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		49CC88871BA6BA74004BE1A8 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				49CC88881BA6BA9C004BE1A8 /* PositionManager.h */,
+				49CC88891BA6BA9C004BE1A8 /* PositionManager.m */,
+			);
+			path = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,8 +284,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49CC888A1BA6BA9C004BE1A8 /* PositionManager.m in Sources */,
 				49CC88301BA1C8C3004BE1A8 /* AppDelegate.m in Sources */,
 				49CC886A1BA2CB2E004BE1A8 /* OperationsTableViewController.m in Sources */,
+				49CC88831BA6BA1A004BE1A8 /* Position.m in Sources */,
+				49CC88861BA6BA4D004BE1A8 /* CoreDataHelper.m in Sources */,
 				49CC885B1BA2C597004BE1A8 /* TabBarController.m in Sources */,
 				49CC88601BA2C5DA004BE1A8 /* MapViewController.m in Sources */,
 				49CC88331BA1C8C3004BE1A8 /* mapTestApp.xcdatamodeld in Sources */,

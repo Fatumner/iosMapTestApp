@@ -40,6 +40,33 @@
     [PositionManager saveNewPositionWithLongitude:@(point.y) Latitude:@(point.x)];
 }
 
+- (void)removeMissingAnnotation {
+    BOOL foundPosition = NO;
+    CLLocationCoordinate2D coord;
+    
+    for (id<MKAnnotation> mkAnnotation in self.mapView.annotations) {
+        MyAnnotation *annotation = (MyAnnotation *)[self.mapView viewForAnnotation:mkAnnotation];
+        
+        for (Position *position in [self.fetchedResultsController fetchedObjects]) {
+            coord = [self.mapView convertPoint:CGPointMake([position.lat floatValue], [position.lon floatValue]) toCoordinateFromView:self
+             .mapView];
+            
+            if (coord.latitude == annotation.coordinate.latitude && coord.longitude == annotation.coordinate.longitude) {
+                foundPosition = YES;
+                
+                break;
+            }
+        }
+        
+        if (!foundPosition) {
+            [self.mapView removeAnnotation:mkAnnotation];
+            
+            return;
+        }
+        foundPosition = NO;
+    }
+}
+
 - (void)removeAnnotationWithLongitude:(NSNumber *)longitude latitude:(NSNumber *)latitude {
     CGPoint point = CGPointMake([latitude doubleValue], [longitude doubleValue]);
     CLLocationCoordinate2D coordinate = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
@@ -61,12 +88,12 @@
     CGPoint point = CGPointMake([latitude floatValue], [longitude floatValue]);
     CLLocationCoordinate2D coordinate = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
     
-    NSLog(@"add - latitude: %f longitude: %f", coordinate.latitude, coordinate.longitude);
     MyAnnotation *annotation = [[MyAnnotation alloc] initWithCoordinates:coordinate];
     [self.mapView addAnnotation:annotation];
 }
 
 #pragma mark - Map view delegate
+
 - (void)mapViewDidFinishRenderingMap:(MKMapView *)mapView fullyRendered:(BOOL)fullyRendered {
     [self initAnnotations];
 }
@@ -79,10 +106,23 @@
 - (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath {
     Position *position = anObject;
     
-    if (type == NSFetchedResultsChangeDelete) {
-        [self removeAnnotationWithLongitude:position.lon latitude:position.lat];
-    } else if (type == NSFetchedResultsChangeInsert) {
-        [self addAnnotationForLongitude:position.lon latitude:position.lat];
+    switch (type) {
+        case NSFetchedResultsChangeDelete:
+            [self removeAnnotationWithLongitude:position.lon latitude:position.lat];
+            break;
+        case NSFetchedResultsChangeInsert:
+            [self addAnnotationForLongitude:position.lon latitude:position.lat];
+            break;
+        case NSFetchedResultsChangeUpdate: {
+            [self removeMissingAnnotation];
+            [self addAnnotationForLongitude:position.lon latitude:position.lat];
+            break;
+        }
+        case NSFetchedResultsChangeMove: {
+            [self removeMissingAnnotation];
+            [self addAnnotationForLongitude:position.lon latitude:position.lat];
+            break;
+        }
     }
 }
 

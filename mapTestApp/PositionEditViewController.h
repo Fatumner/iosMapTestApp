@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Position.h"
 
 @interface PositionEditViewController : UIViewController
+
+@property (nonatomic, strong) Position *position;
+
+@property (weak, nonatomic) IBOutlet UITextField *latitudeTextField;
+@property (weak, nonatomic) IBOutlet UITextField *longitudeTextField;
+
+- (IBAction)saveButtonPressed:(id)sender;
+- (IBAction)cancelButtonPressed:(id)sender;
 
 @end

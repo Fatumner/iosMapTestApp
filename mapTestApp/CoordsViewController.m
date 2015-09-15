@@ -92,6 +92,8 @@
 - (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
     PositionEditViewController *positionEditViewController = [[PositionEditViewController alloc] initWithNibName:@"PositionEditViewController" bundle:nil];
     
+    positionEditViewController.position = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
     [self.navigationController pushViewController:positionEditViewController animated:YES];
 }
 

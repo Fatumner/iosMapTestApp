@@ -9,7 +9,7 @@
 #import "AppDelegate.h"
 #import "CoordsViewController.h"
 #import "MapViewController.h"
-#import "OperationsTableViewController.h"
+#import "OperationsViewController.h"
 #import "TabBarController.h"
 
 @interface AppDelegate ()
@@ -24,7 +24,7 @@
     
     MapViewController *mapViewController = [[MapViewController alloc] initWithNibName:@"MapViewController" bundle:nil];
     CoordsViewController *coordsViewController = [[CoordsViewController alloc] initWithNibName:@"CoordsViewController" bundle:nil];
-    OperationsTableViewController *operationsViewController = [[OperationsTableViewController alloc] initWithNibName:@"OperationsTableViewController" bundle:nil];
+    OperationsViewController *operationsViewController = [[OperationsViewController alloc] initWithNibName:@"OperationsViewController" bundle:nil];
     
     mapViewController.title = @"1";
     coordsViewController.title = @"2";

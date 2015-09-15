@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OperationsViewController">
+            <connections>
+                <outlet property="tableView" destination="srh-pE-1S1" id="LPA-gG-ngv"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="srh-pE-1S1">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="465"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fdv-XX-c7x">
+                    <rect key="frame" x="71" y="473" width="33" height="30"/>
+                    <state key="normal" title="Start">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="startButtonPressed:" destination="-1" eventType="touchUpInside" id="Lyu-SW-FEb"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fZg-BJ-0rQ">
+                    <rect key="frame" x="216" y="473" width="33" height="30"/>
+                    <state key="normal" title="Stop">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="stopButtonPressed:" destination="-1" eventType="touchUpInside" id="Xkb-ff-aPL"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="centerX" secondItem="Fdv-XX-c7x" secondAttribute="centerX" constant="72.5" id="3Ha-qM-Rq4"/>
+                <constraint firstItem="srh-pE-1S1" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9Z4-nt-o6l"/>
+                <constraint firstItem="fZg-BJ-0rQ" firstAttribute="top" secondItem="srh-pE-1S1" secondAttribute="bottom" constant="8" id="FR8-Rn-Rtl"/>
+                <constraint firstItem="srh-pE-1S1" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="W6l-Md-sqV"/>
+                <constraint firstItem="Fdv-XX-c7x" firstAttribute="top" secondItem="srh-pE-1S1" secondAttribute="bottom" constant="8" id="X1x-IZ-kCe"/>
+                <constraint firstAttribute="trailing" secondItem="srh-pE-1S1" secondAttribute="trailing" id="by7-Kt-pHe"/>
+                <constraint firstAttribute="bottom" secondItem="Fdv-XX-c7x" secondAttribute="bottom" constant="65" id="kfh-kN-6vZ"/>
+                <constraint firstAttribute="centerX" secondItem="fZg-BJ-0rQ" secondAttribute="centerX" constant="-72.5" id="vAd-fh-Vvy"/>
+                <constraint firstAttribute="bottom" secondItem="fZg-BJ-0rQ" secondAttribute="bottom" constant="65" id="zpS-8f-5ZC"/>
+            </constraints>
+            <point key="canvasLocation" x="325" y="236"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

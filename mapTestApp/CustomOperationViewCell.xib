@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="qPd-Hm-f9U" customClass="CustomOperationViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qPd-Hm-f9U" id="oTk-Lj-nVS">
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Qeg-MD-ocA">
+                        <rect key="frame" x="78" y="21" width="164" height="2"/>
+                    </progressView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="centerY" secondItem="Qeg-MD-ocA" secondAttribute="centerY" constant="-0.25" id="5Ns-A3-CSA"/>
+                    <constraint firstItem="Qeg-MD-ocA" firstAttribute="centerX" secondItem="oTk-Lj-nVS" secondAttribute="centerX" id="9E9-XJ-GH4"/>
+                    <constraint firstItem="Qeg-MD-ocA" firstAttribute="leading" secondItem="oTk-Lj-nVS" secondAttribute="leadingMargin" constant="70" id="Db6-fk-8td"/>
+                    <constraint firstItem="Qeg-MD-ocA" firstAttribute="centerX" secondItem="oTk-Lj-nVS" secondAttribute="centerX" id="J55-Hb-or6"/>
+                    <constraint firstAttribute="centerX" secondItem="Qeg-MD-ocA" secondAttribute="centerX" id="UqT-4h-Zxq"/>
+                    <constraint firstAttribute="centerY" secondItem="Qeg-MD-ocA" secondAttribute="centerY" constant="-0.25" id="XVa-MH-XPR"/>
+                    <constraint firstItem="Qeg-MD-ocA" firstAttribute="top" secondItem="oTk-Lj-nVS" secondAttribute="topMargin" constant="13" id="agq-HA-FFa"/>
+                    <constraint firstItem="Qeg-MD-ocA" firstAttribute="leading" secondItem="oTk-Lj-nVS" secondAttribute="leadingMargin" constant="70" id="cP6-aT-YeN"/>
+                    <constraint firstItem="Qeg-MD-ocA" firstAttribute="top" secondItem="oTk-Lj-nVS" secondAttribute="topMargin" constant="13" id="o3R-gS-cl3"/>
+                    <constraint firstItem="Qeg-MD-ocA" firstAttribute="leading" secondItem="oTk-Lj-nVS" secondAttribute="leadingMargin" constant="70" id="y9z-f2-NDP"/>
+                </constraints>
+                <variation key="default">
+                    <mask key="constraints">
+                        <exclude reference="5Ns-A3-CSA"/>
+                        <exclude reference="Db6-fk-8td"/>
+                        <exclude reference="J55-Hb-or6"/>
+                        <exclude reference="UqT-4h-Zxq"/>
+                        <exclude reference="XVa-MH-XPR"/>
+                        <exclude reference="o3R-gS-cl3"/>
+                        <exclude reference="y9z-f2-NDP"/>
+                    </mask>
+                </variation>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="progressBar" destination="Qeg-MD-ocA" id="fgj-Iq-O16"/>
+            </connections>
+            <point key="canvasLocation" x="270" y="223"/>
+        </tableViewCell>
+    </objects>
+</document>

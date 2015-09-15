@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
@@ -21,14 +21,23 @@
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstAttribute="centerY" secondItem="bGY-nz-wch" secondAttribute="centerY" id="7kb-Dn-wTn"/>
                 <constraint firstItem="bGY-nz-wch" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="DWq-1F-fuU"/>
                 <constraint firstItem="bGY-nz-wch" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Yta-3D-xvA"/>
                 <constraint firstAttribute="centerX" secondItem="bGY-nz-wch" secondAttribute="centerX" id="cbN-pV-AES"/>
             </constraints>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="Xpq-te-tIQ" appends="YES" id="PSu-fq-zxk"/>
+            </connections>
             <point key="canvasLocation" x="565" y="358"/>
         </view>
+        <swipeGestureRecognizer direction="right" id="Xpq-te-tIQ">
+            <connections>
+                <action selector="swipedRight:" destination="-1" id="AoQ-Ez-7b7"/>
+            </connections>
+        </swipeGestureRecognizer>
     </objects>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

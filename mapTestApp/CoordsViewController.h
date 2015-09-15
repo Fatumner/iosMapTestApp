@@ -12,5 +12,6 @@
 @interface CoordsViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *coordsTableView;
+- (IBAction)swipedRight:(id)sender;
 
 @end

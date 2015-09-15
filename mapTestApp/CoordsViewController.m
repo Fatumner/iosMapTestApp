@@ -46,7 +46,7 @@
     
     switch (type) {
         case NSFetchedResultsChangeDelete:
-            [self.coordsTableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
+            [self.coordsTableView deleteRowsAtIndexPaths:@[ indexPath ] withRowAnimation:UITableViewRowAnimationRight];
             break;
         case NSFetchedResultsChangeInsert:
             [self.coordsTableView insertRowsAtIndexPaths:@[ newIndexPath ] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -101,11 +101,16 @@
     return 68;
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [CoreDataHelper removeObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
-    }
-}
+//uncomment to enable deleting with button after swipe left
+//- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+//    if (editingStyle == UITableViewCellEditingStyleDelete) {
+//        [CoreDataHelper removeObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+//    }
+//}
+//
+//- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return YES;
+//}
 
 #pragma mark - Table view delegate
 
@@ -115,9 +120,16 @@
     [self.navigationController pushViewController:flickerViewController animated:YES];
 }
 
-- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return UITableViewCellEditingStyleDelete;
-}
+//uncomment to enable deleting with button after swipe left
+//- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return UITableViewCellEditingStyleDelete;
+//}
 
+
+- (IBAction)swipedRight:(id)sender {
+    CGPoint location = [sender locationInView:self.coordsTableView];
+    NSIndexPath *indexPath = [self.coordsTableView indexPathForRowAtPoint:location];
+    [CoreDataHelper removeObject:[self.fetchedResultsController objectAtIndexPath:indexPath]];
+}
 
 @end

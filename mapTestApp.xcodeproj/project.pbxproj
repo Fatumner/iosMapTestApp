@@ -35,6 +35,7 @@
 		49EAE9A01BA8C65500FED8E1 /* OperationClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EAE99F1BA8C65500FED8E1 /* OperationClass.m */; };
 		49EAE9A21BA8C99200FED8E1 /* CustomOperationViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49EAE9A11BA8C99200FED8E1 /* CustomOperationViewCell.xib */; };
 		49EAE9A51BA8C9B600FED8E1 /* CustomOperationViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EAE9A41BA8C9B600FED8E1 /* CustomOperationViewCell.m */; };
+		49EAE9A81BA8E93F00FED8E1 /* YQL.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EAE9A71BA8E93F00FED8E1 /* YQL.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,8 @@
 		49EAE9A11BA8C99200FED8E1 /* CustomOperationViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomOperationViewCell.xib; sourceTree = "<group>"; };
 		49EAE9A31BA8C9B600FED8E1 /* CustomOperationViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomOperationViewCell.h; sourceTree = "<group>"; };
 		49EAE9A41BA8C9B600FED8E1 /* CustomOperationViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomOperationViewCell.m; sourceTree = "<group>"; };
+		49EAE9A61BA8E93F00FED8E1 /* YQL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YQL.h; sourceTree = "<group>"; };
+		49EAE9A71BA8E93F00FED8E1 /* YQL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YQL.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +171,8 @@
 				49EAE9A11BA8C99200FED8E1 /* CustomOperationViewCell.xib */,
 				49EAE99E1BA8C65500FED8E1 /* OperationClass.h */,
 				49EAE99F1BA8C65500FED8E1 /* OperationClass.m */,
+				49EAE9A61BA8E93F00FED8E1 /* YQL.h */,
+				49EAE9A71BA8E93F00FED8E1 /* YQL.m */,
 				49CC88871BA6BA74004BE1A8 /* Managers */,
 				49CC887C1BA2F9AA004BE1A8 /* Models */,
 				49CC88801BA6B9D8004BE1A8 /* Supporting Files */,
@@ -340,6 +345,7 @@
 				49CC885B1BA2C597004BE1A8 /* TabBarController.m in Sources */,
 				49CC88601BA2C5DA004BE1A8 /* MapViewController.m in Sources */,
 				49CC88331BA1C8C3004BE1A8 /* mapTestApp.xcdatamodeld in Sources */,
+				49EAE9A81BA8E93F00FED8E1 /* YQL.m in Sources */,
 				49CC882D1BA1C8C3004BE1A8 /* main.m in Sources */,
 				49EAE9A51BA8C9B600FED8E1 /* CustomOperationViewCell.m in Sources */,
 				49CC88951BA6EB38004BE1A8 /* CustomViewCell.m in Sources */,

@@ -117,6 +117,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     FlickerCollectionViewController *flickerViewController = [[FlickerCollectionViewController alloc] initWithNibName:@"FlickerCollectionViewController" bundle:nil];
     
+    flickerViewController.position = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
     [self.navigationController pushViewController:flickerViewController animated:YES];
 }
 

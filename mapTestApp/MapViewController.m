@@ -37,21 +37,22 @@
 
 - (IBAction)tapped:(id)sender {
     CGPoint point = [sender locationInView:self.mapView];
-    [PositionManager saveNewPositionWithLongitude:@(point.y) Latitude:@(point.x)];
+    CLLocationCoordinate2D coord = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
+    [PositionManager saveNewPositionWithLongitude:@(coord.longitude) Latitude:@(coord.latitude)];
 }
 
 - (void)removeMissingAnnotation {
     BOOL foundPosition = NO;
-    CLLocationCoordinate2D coord;
+//    CLLocationCoordinate2D coord;
     
     for (id<MKAnnotation> mkAnnotation in self.mapView.annotations) {
         MyAnnotation *annotation = (MyAnnotation *)[self.mapView viewForAnnotation:mkAnnotation];
         
         for (Position *position in [self.fetchedResultsController fetchedObjects]) {
-            coord = [self.mapView convertPoint:CGPointMake([position.lat floatValue], [position.lon floatValue]) toCoordinateFromView:self
-             .mapView];
+//            coord = [self.mapView convertPoint:CGPointMake([position.lat floatValue], [position.lon floatValue]) toCoordinateFromView:self.mapView];
             
-            if (coord.latitude == annotation.coordinate.latitude && coord.longitude == annotation.coordinate.longitude) {
+//            if (coord.latitude == annotation.coordinate.latitude && coord.longitude == annotation.coordinate.longitude) {
+            if ([position.lat doubleValue] == annotation.coordinate.latitude && [position.lon doubleValue] == annotation.coordinate.longitude) {
                 foundPosition = YES;
                 
                 break;
@@ -68,10 +69,11 @@
 }
 
 - (void)removeAnnotationWithLongitude:(NSNumber *)longitude latitude:(NSNumber *)latitude {
-    CGPoint point = CGPointMake([latitude doubleValue], [longitude doubleValue]);
-    CLLocationCoordinate2D coordinate = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
+//    CGPoint point = CGPointMake([latitude doubleValue], [longitude doubleValue]);
+//    CLLocationCoordinate2D coordinate = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
     
-    MyAnnotation *annotation = [[MyAnnotation alloc] initWithCoordinates:coordinate];
+//    MyAnnotation *annotation = [[MyAnnotation alloc] initWithCoordinates:coordinate];
+    MyAnnotation *annotation = [[MyAnnotation alloc] initWithCoordinates:CLLocationCoordinate2DMake([latitude doubleValue], [longitude doubleValue])];
     for (id<MKAnnotation> annotatio in self.mapView.annotations) {
         MKAnnotationView* anView = [self.mapView viewForAnnotation: annotatio];
         MyAnnotation *anno = (MyAnnotation *)anView;
@@ -85,10 +87,11 @@
 }
 
 - (void)addAnnotationForLongitude:(NSNumber *)longitude latitude:(NSNumber *)latitude {
-    CGPoint point = CGPointMake([latitude floatValue], [longitude floatValue]);
-    CLLocationCoordinate2D coordinate = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
+//    CGPoint point = CGPointMake([latitude floatValue], [longitude floatValue]);
+//    CLLocationCoordinate2D coordinate = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
     
-    MyAnnotation *annotation = [[MyAnnotation alloc] initWithCoordinates:coordinate];
+//    MyAnnotation *annotation = [[MyAnnotation alloc] initWithCoordinates:coordinate];
+    MyAnnotation *annotation = [[MyAnnotation alloc] initWithCoordinates:CLLocationCoordinate2DMake([latitude doubleValue], [longitude doubleValue])];
     [self.mapView addAnnotation:annotation];
 }
 

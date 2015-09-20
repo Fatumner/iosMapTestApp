@@ -7,9 +7,12 @@
 //
 
 #import "FlickerCollectionViewController.h"
-#import "YQL.h"
+#import "FlickrManager.h"
 
 @interface FlickerCollectionViewController ()
+
+@property (nonatomic) __block NSInteger itemCounter;
+@property (nonatomic) __block NSMutableArray *images;
 
 @end
 
@@ -17,27 +20,39 @@
 
 static NSString * const reuseIdentifier = @"Cell";
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+void (^insertIntoCollectionViewImage)(FlickerCollectionViewController *, UIImage *) = ^(FlickerCollectionViewController *self, UIImage *image) {
+    NSLog(@"inserting image");
     
-    YQL *yql = [[YQL alloc] init];
-    //NSString *queryString = @"select * from flickr.photos.search where api_key=\"9d0caed89e044d5d9e9131f5a7f1b8a0\" and has_geo=\"true\" and lat = \"217\" and lon=\"311\" and radius=\"32\" and radius_units=\"km\"";
-    NSString *queryString = @"select * from flickr.photos.search where api_key=\"9d0caed89e044d5d9e9131f5a7f1b8a0\" and has_geo=\"true\"";
-    NSDictionary *results = [yql query:queryString];
-    NSLog(@"%@", results);
+    self.itemCounter++;
+    [self.images addObject:image];
     
-    // Uncomment the following line to preserve selection between presentations
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
-    
-    // Do any additional setup after loading the view.
+};
+
+- (void)loadImage {
+    NSLog(@"invoked");
+    [self.collectionView reloadData];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    self.itemCounter = 0;
+    
+    self.collectionView.dataSource = self;
+    self.collectionView.delegate = self;
+    
+    dispatch_queue_t concurrentQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    dispatch_async(concurrentQueue, ^{
+//        [FlickrManager loadImagesForPosition:self.position withBlock:insertIntoCollectionViewImage forView:self];
+        [FlickrManager loadImagesForPosition:self.position withBlock:^(FlickerCollectionViewController *self, UIImage *image) {
+            self.itemCounter++;
+            [self.images addObject:image];
+            [self performSelectorOnMainThread:@selector(loadImage) withObject:nil waitUntilDone:NO];
+        } forView:self];
+    });
+    
+    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
 }
 
 #pragma mark <UICollectionViewDataSource>
@@ -46,49 +61,21 @@ static NSString * const reuseIdentifier = @"Cell";
     return 1;
 }
 
-
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 1;
+    return self.itemCounter;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     cell.backgroundColor = [UIColor redColor];
-    // Configure the cell
+    
+    NSLog(@"created cell");
     
     return cell;
 }
 
 #pragma mark <UICollectionViewDelegate>
 
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
-}
-*/
-
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
-}
-*/
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
 
 @end

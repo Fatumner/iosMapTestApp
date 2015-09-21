@@ -38,6 +38,8 @@
 		49EAE9AB1BAF219100FED8E1 /* FlickrManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EAE9AA1BAF219100FED8E1 /* FlickrManager.m */; };
 		49EAE9B11BAF7B6500FED8E1 /* FlickrCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EAE9B01BAF7B6500FED8E1 /* FlickrCollectionViewCell.m */; };
 		49EAE9B31BAF7B8300FED8E1 /* FlickrCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49EAE9B21BAF7B8300FED8E1 /* FlickrCollectionViewCell.xib */; };
+		49EAE9B71BAFF10000FED8E1 /* FlickrImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49EAE9B51BAFF10000FED8E1 /* FlickrImageViewController.m */; };
+		49EAE9B81BAFF10000FED8E1 /* FlickrImageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49EAE9B61BAFF10000FED8E1 /* FlickrImageViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +104,9 @@
 		49EAE9AF1BAF7B6500FED8E1 /* FlickrCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrCollectionViewCell.h; sourceTree = "<group>"; };
 		49EAE9B01BAF7B6500FED8E1 /* FlickrCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrCollectionViewCell.m; sourceTree = "<group>"; };
 		49EAE9B21BAF7B8300FED8E1 /* FlickrCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlickrCollectionViewCell.xib; sourceTree = "<group>"; };
+		49EAE9B41BAFF10000FED8E1 /* FlickrImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrImageViewController.h; sourceTree = "<group>"; };
+		49EAE9B51BAFF10000FED8E1 /* FlickrImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrImageViewController.m; sourceTree = "<group>"; };
+		49EAE9B61BAFF10000FED8E1 /* FlickrImageViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FlickrImageViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +173,9 @@
 				49CC88961BA6EE4B004BE1A8 /* FlickerCollectionViewController.h */,
 				49CC88971BA6EE4B004BE1A8 /* FlickerCollectionViewController.m */,
 				49CC88981BA6EE4B004BE1A8 /* FlickerCollectionViewController.xib */,
+				49EAE9B41BAFF10000FED8E1 /* FlickrImageViewController.h */,
+				49EAE9B51BAFF10000FED8E1 /* FlickrImageViewController.m */,
+				49EAE9B61BAFF10000FED8E1 /* FlickrImageViewController.xib */,
 				49CC88931BA6EB38004BE1A8 /* CustomViewCell.h */,
 				49CC88941BA6EB38004BE1A8 /* CustomViewCell.m */,
 				49CC88911BA6EAB7004BE1A8 /* CustomViewCell.xib */,
@@ -323,6 +331,7 @@
 				49CC883B1BA1C8C3004BE1A8 /* Images.xcassets in Resources */,
 				49EAE9A21BA8C99200FED8E1 /* CustomOperationViewCell.xib in Resources */,
 				49CC88611BA2C5DA004BE1A8 /* MapViewController.xib in Resources */,
+				49EAE9B81BAFF10000FED8E1 /* FlickrImageViewController.xib in Resources */,
 				49EAE9B31BAF7B8300FED8E1 /* FlickrCollectionViewCell.xib in Resources */,
 				49CC88921BA6EAB7004BE1A8 /* CustomViewCell.xib in Resources */,
 				49CC889A1BA6EE4B004BE1A8 /* FlickerCollectionViewController.xib in Resources */,
@@ -361,6 +370,7 @@
 				49CC88951BA6EB38004BE1A8 /* CustomViewCell.m in Sources */,
 				49CC888D1BA6D331004BE1A8 /* MyAnnotation.m in Sources */,
 				49EAE9A01BA8C65500FED8E1 /* OperationClass.m in Sources */,
+				49EAE9B71BAFF10000FED8E1 /* FlickrImageViewController.m in Sources */,
 				49CC88991BA6EE4B004BE1A8 /* FlickerCollectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

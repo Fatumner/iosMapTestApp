@@ -8,6 +8,7 @@
 
 #import "FlickerCollectionViewController.h"
 #import "FlickrCollectionViewCell.h"
+#import "FlickrImageViewController.h"
 #import "FlickrManager.h"
 
 @interface FlickerCollectionViewController ()
@@ -21,19 +22,8 @@
 
 static NSString * const reuseIdentifier = @"FlickrCollectionViewCell";
 
-void (^insertIntoCollectionViewImage)(FlickerCollectionViewController *, UIImage *) = ^(FlickerCollectionViewController *self, UIImage *image) {
-    NSLog(@"inserting image");
-    
-    self.itemCounter++;
-    [self.images addObject:image];
-    
-};
-
 - (void)loadImage {
-    NSLog(@"invoked");
     [self.collectionView reloadData];
-    
-    
 }
 
 - (void)viewDidLoad {
@@ -48,11 +38,9 @@ void (^insertIntoCollectionViewImage)(FlickerCollectionViewController *, UIImage
     dispatch_queue_t concurrentQueue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
     
     dispatch_async(concurrentQueue, ^{
-//        [FlickrManager loadImagesForPosition:self.position withBlock:insertIntoCollectionViewImage forView:self];
         [FlickrManager loadImagesForPosition:self.position withBlock:^(FlickerCollectionViewController *self, UIImage *image) {
             self.itemCounter++;
             [self.images addObject:image];
-            NSLog(@"%@ - %@", [self.images lastObject], image);
             [self performSelectorOnMainThread:@selector(loadImage) withObject:nil waitUntilDone:NO];
         } forView:self];
     });
@@ -71,7 +59,6 @@ void (^insertIntoCollectionViewImage)(FlickerCollectionViewController *, UIImage
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-
     FlickrCollectionViewCell *cell = (FlickrCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
     cell.image.image = [self.images objectAtIndex:indexPath.row];
@@ -81,5 +68,13 @@ void (^insertIntoCollectionViewImage)(FlickerCollectionViewController *, UIImage
 
 #pragma mark <UICollectionViewDelegate>
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    FlickrImageViewController *imageViewController = [[FlickrImageViewController alloc] initWithNibName:@"FlickrImageViewController" bundle:nil];
+    
+    imageViewController.images = self.images;
+    imageViewController.currentImageIndex = indexPath.row;
+    
+    [self.navigationController pushViewController:imageViewController animated:YES];
+}
 
 @end

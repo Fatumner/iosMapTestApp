@@ -7,18 +7,19 @@
 //
 
 #import "FlickerCollectionViewController.h"
+#import "FlickrCollectionViewCell.h"
 #import "FlickrManager.h"
 
 @interface FlickerCollectionViewController ()
 
 @property (nonatomic) __block NSInteger itemCounter;
-@property (nonatomic) __block NSMutableArray *images;
+@property (nonatomic, strong) __block NSMutableArray *images;
 
 @end
 
 @implementation FlickerCollectionViewController
 
-static NSString * const reuseIdentifier = @"Cell";
+static NSString * const reuseIdentifier = @"FlickrCollectionViewCell";
 
 void (^insertIntoCollectionViewImage)(FlickerCollectionViewController *, UIImage *) = ^(FlickerCollectionViewController *self, UIImage *image) {
     NSLog(@"inserting image");
@@ -31,11 +32,14 @@ void (^insertIntoCollectionViewImage)(FlickerCollectionViewController *, UIImage
 - (void)loadImage {
     NSLog(@"invoked");
     [self.collectionView reloadData];
+    
+    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.images = [[NSMutableArray alloc] init];
     self.itemCounter = 0;
     
     self.collectionView.dataSource = self;
@@ -48,11 +52,12 @@ void (^insertIntoCollectionViewImage)(FlickerCollectionViewController *, UIImage
         [FlickrManager loadImagesForPosition:self.position withBlock:^(FlickerCollectionViewController *self, UIImage *image) {
             self.itemCounter++;
             [self.images addObject:image];
+            NSLog(@"%@ - %@", [self.images lastObject], image);
             [self performSelectorOnMainThread:@selector(loadImage) withObject:nil waitUntilDone:NO];
         } forView:self];
     });
     
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"FlickrCollectionViewCell" bundle:[NSBundle mainBundle]] forCellWithReuseIdentifier:reuseIdentifier];
 }
 
 #pragma mark <UICollectionViewDataSource>
@@ -66,11 +71,10 @@ void (^insertIntoCollectionViewImage)(FlickerCollectionViewController *, UIImage
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+
+    FlickrCollectionViewCell *cell = (FlickrCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    cell.backgroundColor = [UIColor redColor];
-    
-    NSLog(@"created cell");
+    cell.image.image = [self.images objectAtIndex:indexPath.row];
     
     return cell;
 }

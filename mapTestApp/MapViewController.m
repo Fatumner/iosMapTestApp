@@ -22,6 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBarHidden = YES;
     
     self.fetchedResultsController = [CoreDataHelper fetchedResultsControllerWithEntityName:@"Position"];
     
@@ -38,10 +39,6 @@
 - (IBAction)tapped:(id)sender {
     CGPoint point = [sender locationInView:self.mapView];
     CLLocationCoordinate2D coord = [self.mapView convertPoint:point toCoordinateFromView:self.mapView];
-    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
-    numberFormatter.positiveFormat = @"0.##";
-    numberFormatter.negativeFormat = @"-0.##";
-    numberFormatter
     [PositionManager saveNewPositionWithLongitude:@(coord.longitude) Latitude:@(coord.latitude)];
 }
 

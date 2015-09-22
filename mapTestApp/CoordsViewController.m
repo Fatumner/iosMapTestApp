@@ -25,6 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBarHidden = YES;
     
     self.coordsTableView.dataSource = self;
     self.coordsTableView.delegate = self;

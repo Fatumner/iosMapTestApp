@@ -28,6 +28,7 @@ static NSString * const reuseIdentifier = @"FlickrCollectionViewCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBarHidden = NO;
 
     self.images = [[NSMutableArray alloc] init];
     self.itemCounter = 0;

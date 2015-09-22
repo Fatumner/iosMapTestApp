@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBarHidden = NO;
     
     self.swipeGestureRecognizerLeft = [[UISwipeGestureRecognizer alloc]
                                    initWithTarget:self

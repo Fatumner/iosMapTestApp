@@ -17,6 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationController.navigationBarHidden = NO;
     
     self.latitudeTextField.text = [self.position.lat stringValue];
     self.longitudeTextField.text = [self.position.lon stringValue];

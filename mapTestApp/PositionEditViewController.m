@@ -25,18 +25,17 @@
     self.numberFormatter.positiveFormat = @"0.##";
     self.numberFormatter.negativeFormat = @"-0.##";
     
-    self.latitudeTextField.text = [self.numberFormatter stringFromNumber:self.position.lat];// [self.position.lat stringValue];
-    self.longitudeTextField.text = [self.numberFormatter stringFromNumber:self.position.lon];// [self.position.lon stringValue];
+    self.latitudeTextField.text = [self.numberFormatter stringFromNumber:self.position.lat];
+    self.longitudeTextField.text = [self.numberFormatter stringFromNumber:self.position.lon];
 }
 
 - (IBAction)saveButtonPressed:(id)sender {
-    //validation not finished
-    //if ([self checkTextFields]) {
+    if ([self checkTextFields]) {
         
         if ([self saveChanges]) {
             [self.navigationController popViewControllerAnimated:YES];
         }
-    //}
+    }
 }
 
 - (IBAction)cancelButtonPressed:(id)sender {
@@ -44,8 +43,8 @@
 }
 
 - (BOOL)saveChanges {
-    self.position.lat = [self.numberFormatter numberFromString:self.latitudeTextField.text];// [NSNumber numberWithFloat:[self.latitudeTextField.text floatValue]];
-    self.position.lon = [self.numberFormatter numberFromString:self.longitudeTextField.text];// [NSNumber numberWithFloat:[self.longitudeTextField.text floatValue]];
+    self.position.lat = [self.numberFormatter numberFromString:self.latitudeTextField.text];
+    self.position.lon = [self.numberFormatter numberFromString:self.longitudeTextField.text];
     
     NSError *savingError = nil;
     
@@ -64,13 +63,12 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-//validation not finished
-/*- (void)markInvalidTextField:(UITextField *)textField {
-    
+- (void)markInvalidTextField:(UITextField *)textField {
+    textField.backgroundColor = [UIColor redColor];
 }
 
 - (void)markValidTextField:(UITextField *)textField {
-    
+    textField.backgroundColor = [UIColor whiteColor];
 }
 
 - (BOOL)checkTextFields {
@@ -89,9 +87,18 @@
     return YES;
 }
 
-
 - (BOOL)isTextFieldValid:(UITextField *)textField {
-    return YES;
-}*/
+    NSString *pattern = @"[0-9]{1,3}(\\.[0-9]*)?";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", pattern];
+    BOOL match = [predicate evaluateWithObject:textField.text];
+    
+    if(match) {
+        if ([[self.numberFormatter numberFromString:textField.text] doubleValue] > -180.0 && [[self.numberFormatter numberFromString:textField.text] doubleValue] < 180.0) {
+            return YES;
+        }
+    }
+    
+    return NO;
+}
 
 @end

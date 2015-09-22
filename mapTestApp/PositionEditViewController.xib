@@ -28,17 +28,6 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TP1-Az-Jyj">
-                    <rect key="frame" x="143" y="77" width="125" height="30"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="30" id="1AB-bO-Xz3"/>
-                        <constraint firstAttribute="width" constant="125" id="7W1-Gf-ctG"/>
-                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="125" id="L2s-yA-pIn"/>
-                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="eYb-vb-2zw"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yca-Ib-tED">
                     <rect key="frame" x="143" y="111" width="125" height="30"/>
                     <constraints>
@@ -48,7 +37,7 @@
                         <constraint firstAttribute="height" constant="30" id="Smr-KE-uHn"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wT2-7W-wLa">
                     <rect key="frame" x="87" y="186" width="34" height="30"/>
@@ -88,6 +77,17 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TP1-Az-Jyj">
+                    <rect key="frame" x="143" y="77" width="125" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="1AB-bO-Xz3"/>
+                        <constraint firstAttribute="width" constant="125" id="7W1-Gf-ctG"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="125" id="L2s-yA-pIn"/>
+                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="eYb-vb-2zw"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>

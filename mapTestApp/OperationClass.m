@@ -22,7 +22,7 @@
 }
 
 - (void)main {
-    int length = 50;
+    int length = 20;
     
     if ([self isCancelled]) {
         NSLog(@"** operation cancelled **");

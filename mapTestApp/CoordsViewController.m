@@ -83,8 +83,11 @@
         cell = [nib objectAtIndex:0];
     }
     
-    cell.longitude.text = [position.lon stringValue];
-    cell.latitude.text = [position.lat stringValue];
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    numberFormatter.positiveFormat = @"0.##";
+    numberFormatter.negativeFormat = @"-0.##";
+    cell.longitude.text = [numberFormatter stringFromNumber:position.lon];// [position.lon stringValue];
+    cell.latitude.text = [numberFormatter stringFromNumber:position.lat]; [position.lat stringValue];
     cell.accessoryType = UITableViewCellAccessoryDetailButton;
     
     return cell;

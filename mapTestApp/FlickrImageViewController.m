@@ -43,13 +43,14 @@
     if (sender.direction == UISwipeGestureRecognizerDirectionLeft) {
         if (self.currentImageIndex + 1 < self.images.count) {
             self.currentImageIndex++;
+            [self loadImage];
         }
     } else if (sender.direction == UISwipeGestureRecognizerDirectionRight) {
         if (self.currentImageIndex > 0) {
             self.currentImageIndex--;
+            [self loadImage];
         }
     }
-    [self loadImage];
 }
 
 @end

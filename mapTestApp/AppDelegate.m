@@ -31,7 +31,6 @@
     operationsViewController.title = @"3";
     
     [mainViewController setViewControllers:@[ mapViewController, coordsViewController, operationsViewController ]];
-    [mainViewController setSelectedViewController:coordsViewController];
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.rootViewController = navController;

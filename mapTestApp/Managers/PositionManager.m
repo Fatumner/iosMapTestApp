@@ -10,7 +10,7 @@
 #import "CoreDataHelper.h"
 
 @implementation PositionManager
-
+//no change
 + (void)saveNewPositionWithLongitude:(NSNumber *)Lon Latitude:(NSNumber *)Lat {
     
     Position *position = [NSEntityDescription

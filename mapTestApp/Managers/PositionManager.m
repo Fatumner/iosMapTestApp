@@ -30,8 +30,6 @@
     } else {
         NSLog(@"Failed to save the new position.");
     }
-}
-//test
 + (NSArray *)fetchAllPositions {
     return [CoreDataHelper fetchDataWithEntityName:@"Position"];
 }
